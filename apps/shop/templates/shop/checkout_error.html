@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка оплаты</title>
+</head>
+<body>
+    <h1>Произошла ошибка при обработке вашего платежа</h1>
+    <p>Пожалуйста, попробуйте снова.</p>
+    <a href="{% url 'checkout' %}">Попробовать еще раз</a>
+    <a href="{% url 'cart_detail' %}">Вернуться в корзину</a>
+</body>
+</html>

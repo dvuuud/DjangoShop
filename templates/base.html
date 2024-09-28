@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Online Store{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в мой магазин!</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'product_list' %}">Товары</a></li>
+                <li><a href="{% url 'cart_detail' %}">Корзина</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Мой Онлайн Магазин</p>
+    </footer>
+</body>
+</html>

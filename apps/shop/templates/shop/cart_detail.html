@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Корзина{% endblock %}
+
+{% block content %}
+<h1>Корзина</h1>
+
+{% if cart.get_items %}
+    <ul>
+        {% for item in cart.get_items %}
+            <li>
+                {{ item.product.name }} - {{ item.quantity }} шт. x {{ item.price }} р. 
+                 <form action="{% url 'cart_remove' item.product.slug %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить</button>
+                </form> 
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Общая стоимость: {{ cart.get_total_price }} р.</p>
+    <a href="{% url 'checkout' %}">Перейти к оплате</a>
+{% else %}
+    <p>Ваша корзина пуста.</p>
+{% endif %}
+
+<a href="{% url 'product_list' %}">Вернуться к покупкам</a>
+{% endblock %}
